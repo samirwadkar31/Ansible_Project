@@ -18,7 +18,7 @@ Also, make sure that python3 or latest is installed on both control and managed 
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/7cca3806-7aa9-477c-9a5e-575cc3c5b5a8)
 
 
-### Ansible PlayBook 1: Performing general Configuration Tasks on Target managed nodes.
+## Ansible PlayBook 1: Performing general Configuration Tasks on Target managed nodes.
 
 ```
 ---
@@ -102,7 +102,7 @@ docker is installed, new user devuser has been created, etc other tasks have bee
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/35f3f474-a46f-419a-9bed-da778d2d3911)
 
 
-### Ansible PlayBook 2: Performing Security & Compliance Configuration tasks on Target managed nodes.
+## Ansible PlayBook 2: Performing Security & Compliance Configuration tasks on Target managed nodes.
 
 ```
 ---
@@ -190,7 +190,7 @@ fail2ban, ufw, ufw rule, prometheus-node-exporter etc other tasks have been succ
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/3ced9827-9dd1-42be-9380-2cecc5f7a7ee)
 
 
-### Ansible PlayBook 3: Performing sample application deployment task on Target managed nodes.
+## Ansible PlayBook 3: Performing sample application deployment task on Target managed nodes.
 
 ```
 ---
