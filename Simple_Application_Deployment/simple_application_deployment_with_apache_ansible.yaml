@@ -17,7 +17,7 @@
         update_cache: yes
     - name: Copy file with owner and permissions
       copy:
-        src: index.html
+        src: /home/sameer/Ansible_Project/Simple_Application_Deployment/index.html
         dest: /var/www/html
         owner: root
         group: root
