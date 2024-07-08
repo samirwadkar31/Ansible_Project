@@ -17,8 +17,9 @@
         update_cache: yes
     - name: Copy file with owner and permissions
       copy:
-        src: /home/sameer/Ansible_Project/Simple_Application_Deployment/index.html
+        src: /home/samirwadkar31/Ansible_Project/Simple_Application_Deployment/index.html
         dest: /var/www/html
         owner: root
         group: root
         mode: '0644'
+      remote_src: yes
