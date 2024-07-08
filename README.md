@@ -86,6 +86,19 @@ Also, make sure that python3 or latest is installed on both control and managed 
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/735a44aa-f520-4671-ade8-7bc1daf8577b)
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/1bb374c7-8d91-4398-890b-9e4de2f4c1c2)
 
+Verification:
+
+sameer-managed-node-1:
+
+docker is installed and new user devuser has been created,
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/31eefba2-5ec7-4214-bf66-2708fff91e73)
+
+
+sameer-managed-node-2:
+
+docker is installed and new user devuser has been created,
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/35f3f474-a46f-419a-9bed-da778d2d3911)
+
 
 ### Ansible PlayBook 2: Performing Security & Compliance Configuration tasks on Target managed nodes.
 
