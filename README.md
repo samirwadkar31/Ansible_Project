@@ -190,3 +190,13 @@ Also, make sure that python3 or latest is installed on both control and managed 
         group: root
         mode: '0644'
 ```
+
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/58d2ce45-720b-408c-a7af-8488dd1511be)
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/5396be0d-92e2-4670-98e9-01c5e106a245)
+
+sameer-managed-node-1:
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/b038b52e-7b5b-4f74-b184-279c82915600)
+sameer-managed-node-2:
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/2e243b61-f626-488d-ada3-bd0b0d9bf06b)
+
+
