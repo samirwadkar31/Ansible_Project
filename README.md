@@ -32,6 +32,50 @@ We are going to perform some configurations tasks on managed nodes using below a
          - curl
          - git
        state: present
+   - name: Set timezone to UTC
+     timezone:
+       name: Etc/UTC
+   - name: Create a new user with sudo privileges
+     user:
+       name: devuser
+       comment: "Developer User"
+       shell: /bin/bash
+       groups: sudo
+       append: yes
+       state: present
+   - name: Set password for the new user
+     user:
+       name: devuser
+       password: "{{ 'password' | password_hash('sha512') }}"
+       update_password: always
+   - name: Add SSH key for devuser
+     authorized_key:
+       user: devuser
+       state: present
+       key: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEArM3P... generated-key ..."
+   - name: Install Docker
+     apt:
+       name: docker.io
+       state: present
+       update_cache: yes
+   - name: Ensure Docker service is running
+     service:
+       name: docker
+       state: started
+       enabled: yes
+   - name: Add devuser to the docker group
+     user:
+       name: devuser
+       groups: docker
+       append: yes
+   - name: Install Docker Compose
+     get_url:
+       url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m`
+       dest: /usr/local/bin/docker-compose
+       mode: '0755'
+   - name: Verify Docker Compose installation
+     command: docker-compose --version
+
 ```
 We are going to perform some security configuration tasks on managed nodes using below ansible playbook:
 
@@ -80,3 +124,23 @@ We are going to perform some security configuration tasks on managed nodes using
        - ufw
 ```
 
+We are going to perform sample website deployment using apache server on managed nodes using below ansible playbook:
+
+```
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install apache http server
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+    - name: Copy file with owner and permissions
+      copy:
+        src: index.html
+        dest: /var/www/html
+        owner: root
+        group: root
+        mode: '0644'
+```
