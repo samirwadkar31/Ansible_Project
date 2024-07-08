@@ -1,0 +1,56 @@
+---
+- name: Basic server setup
+  hosts: servers
+  become: true
+  tasks:
+   - name: Ensure apt cache is up-to-date
+     apt:
+       update_cache: yes
+   - name: Upgrade all packages to the latest version
+     apt:
+       upgrade: dist
+   - name: Install basic packages
+     apt:
+       name:
+         - vim
+         - curl
+         - git
+       state: present
+   - name: Set timezone to UTC
+     timezone:
+       name: Etc/UTC
+   - name: Create a new user with sudo privileges
+     user:
+       name: devuser
+       comment: "Developer User"
+       shell: /bin/bash
+       groups: sudo
+       append: yes
+       state: present
+   - name: Set password for the new user
+     user:
+       name: devuser
+       password: "{{ 'password' | password_hash('sha512') }}"
+       update_password: always
+   - name: Install Docker
+     apt:
+       name: docker.io
+       state: present
+       update_cache: yes
+   - name: Ensure Docker service is running
+     service:
+       name: docker
+       state: started
+       enabled: yes
+   - name: Add devuser to the docker group
+     user:
+       name: devuser
+       groups: docker
+       append: yes
+   - name: Install Docker Compose
+     get_url:
+       url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m`
+       dest: /usr/local/bin/docker-compose
+       mode: '0755'
+   - name: Verify Docker Compose installation
+     command: docker-compose --version
