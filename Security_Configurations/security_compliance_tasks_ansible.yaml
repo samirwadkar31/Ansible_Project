@@ -2,6 +2,7 @@
 - name: Security & Complaince tasks
   hosts: my_servers
   become: true
+  remote_user: samirwadkar31
   tasks:
    - name: Ensure password authentication is disabled under SSH folder
      lineinfile:
