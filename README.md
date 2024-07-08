@@ -96,6 +96,21 @@ We are going to perform some security configuration tasks on managed nodes using
      service:
        name: ssh
        state: restarted
+   - name: Install Fail2Ban
+     apt:
+       name: fail2ban
+       state: present
+       update_cache: yes
+   - name: Configure automatic security updates
+     apt:
+       name: unattended-upgrades
+       state: present
+       update_cache: yes
+   - name: Enable automatic security updates
+     lineinfile:
+       path: /etc/apt/apt.conf.d/20auto-upgrades
+       line: 'APT::Periodic::Unattended-Upgrade "1";'
+       create: yes
    - name: Ensure UFW is installed
      apt:
        name: ufw
@@ -117,6 +132,16 @@ We are going to perform some security configuration tasks on managed nodes using
      with_items:
        - ssh
        - ufw
+   - name: Install Prometheus Node Exporter
+     apt:
+       name: prometheus-node-exporter
+       state: present
+       update_cache: yes
+   - name: Ensure Prometheus Node Exporter is running
+     service:
+       name: prometheus-node-exporter
+       state: started
+       enabled: yes
 ```
 
 We are going to perform sample website deployment using apache server on managed nodes using below ansible playbook:
