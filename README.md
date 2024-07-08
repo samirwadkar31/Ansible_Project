@@ -20,7 +20,7 @@ Also, make sure that python3 or latest is installed on both control and managed 
 ```
 ---
 - name: Configuration tasks
-  hosts: servers
+  hosts: my_servers
   become: true
   tasks:
    - name: Ensure apt cache is up-to-date
