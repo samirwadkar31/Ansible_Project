@@ -4,6 +4,9 @@ Provisioned 3 Ubuntu VM's on Azure cloud. One as a contole node and other two as
 
 Control node is where, I have configured the Ansible. We are going to run some Ansible-Playbooks on control node to perform few tasks on our managed nodes.
 
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/9daa5fa4-629a-4b80-a665-ca23324ddc0a)
+
+
 #### Ansible configuration on control node:
 
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/9f9a7062-4b69-4f43-91d4-b1cc605c0d6a)
