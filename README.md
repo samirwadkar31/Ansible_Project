@@ -11,11 +11,11 @@ Also, make sure that python3 or latest is installed on both control and managed 
 
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/14850aa2-2cdd-422d-ac25-db7a17273550)
 
-We are going to perform some configurations tasks on managed nodes using below ansible playbook:
+### Ansible PlayBook 1: Performing some general configuration tasks on Target managed nodes.
 
 ```
 ---
-- name: Basic server setup
+- name: Configuration tasks
   hosts: servers
   become: true
   tasks:
@@ -72,7 +72,7 @@ We are going to perform some configurations tasks on managed nodes using below a
      command: docker-compose --version
 
 ```
-We are going to perform some security configuration tasks on managed nodes using below ansible playbook:
+### Ansible PlayBook 2: Performing some Security & Compliance Configuration tasks on Target managed nodes.
 
 ```
 ---
@@ -144,7 +144,7 @@ We are going to perform some security configuration tasks on managed nodes using
        enabled: yes
 ```
 
-We are going to perform sample website deployment using apache server on managed nodes using below ansible playbook:
+### Ansible PlayBook 3: Performing sample application deployment task on Target managed nodes.
 
 ```
 ---
