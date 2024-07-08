@@ -1,0 +1,67 @@
+---
+- name: Security & Complaince tasks
+  hosts: my_servers
+  become: true
+  tasks:
+   - name: Ensure apt cache is up-to-date
+     apt:
+       update_cache: yes
+   - name: Upgrade all packages to the latest version
+     apt:
+       upgrade: dist
+   - name: Ensure password authentication is disable under SSH folder
+     lineinfile:
+       path: /etc/ssh/sshd_config
+       regexp: '^PasswordAuthentication'
+       line: 'PasswordAuthentication no'
+       state: present
+   - name: Restart SSH service to apply changes
+     service:
+       name: ssh
+       state: restarted
+   - name: Install Fail2Ban
+     apt:
+       name: fail2ban
+       state: present
+       update_cache: yes
+   - name: Configure automatic security updates
+     apt:
+       name: unattended-upgrades
+       state: present
+       update_cache: yes
+   - name: Enable automatic security updates
+     lineinfile:
+       path: /etc/apt/apt.conf.d/20auto-upgrades
+       line: 'APT::Periodic::Unattended-Upgrade "1";'
+       create: yes
+   - name: Ensure UFW is installed
+     apt:
+       name: ufw
+       state: present
+   - name: Allow SSH through the firewall
+     ufw:
+       rule: allow
+       port: 22
+       proto: tcp
+   - name: Enable the firewall
+     ufw:
+       state: enabled
+       policy: allow
+   - name: Ensure essential services are running
+     service:
+       name: "{{ item }}"
+       state: started
+       enabled: yes
+     with_items:
+       - ssh
+       - ufw
+   - name: Install Prometheus Node Exporter
+     apt:
+       name: prometheus-node-exporter
+       state: present
+       update_cache: yes
+   - name: Ensure Prometheus Node Exporter is running
+     service:
+       name: prometheus-node-exporter
+       state: started
+       enabled: yes
