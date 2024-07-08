@@ -15,7 +15,12 @@ Also, make sure that python3 or latest is installed on both control and managed 
 
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/14850aa2-2cdd-422d-ac25-db7a17273550)
 
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/7cca3806-7aa9-477c-9a5e-575cc3c5b5a8)
+
+
 ### Ansible PlayBook 1: Performing general Configuration Tasks on Target managed nodes.
+
+
 
 ```
 ---
