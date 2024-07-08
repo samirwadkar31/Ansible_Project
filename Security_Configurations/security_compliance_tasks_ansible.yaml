@@ -3,13 +3,7 @@
   hosts: my_servers
   become: true
   tasks:
-   - name: Ensure apt cache is up-to-date
-     apt:
-       update_cache: yes
-   - name: Upgrade all packages to the latest version
-     apt:
-       upgrade: dist
-   - name: Ensure password authentication is disable under SSH folder
+   - name: Ensure password authentication is disabled under SSH folder
      lineinfile:
        path: /etc/ssh/sshd_config
        regexp: '^PasswordAuthentication'
