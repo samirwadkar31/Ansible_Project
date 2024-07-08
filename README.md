@@ -20,17 +20,12 @@ Also, make sure that python3 or latest is installed on both control and managed 
 
 ### Ansible PlayBook 1: Performing general Configuration Tasks on Target managed nodes.
 
-![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/c1af5045-c3bb-44c6-92a4-5f4897b2f03c)
-![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/849fbb73-dd25-4ea9-8a86-589783021fc3)
-![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/735a44aa-f520-4671-ade8-7bc1daf8577b)
-![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/1bb374c7-8d91-4398-890b-9e4de2f4c1c2)
-
-
 ```
 ---
 - name: Configuration tasks
   hosts: my_servers
   become: true
+  remote_user: samirwadkar31
   tasks:
    - name: Ensure apt cache is up-to-date
      apt:
@@ -78,13 +73,20 @@ Also, make sure that python3 or latest is installed on both control and managed 
        append: yes
    - name: Install Docker Compose
      get_url:
-       url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m`
+       url: "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-{{ ansible_system | lower }}-{{ ansible_architecture }}"
        dest: /usr/local/bin/docker-compose
        mode: '0755'
    - name: Verify Docker Compose installation
      command: docker-compose --version
 
 ```
+
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/c1af5045-c3bb-44c6-92a4-5f4897b2f03c)
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/849fbb73-dd25-4ea9-8a86-589783021fc3)
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/735a44aa-f520-4671-ade8-7bc1daf8577b)
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/1bb374c7-8d91-4398-890b-9e4de2f4c1c2)
+
+
 ### Ansible PlayBook 2: Performing Security & Compliance Configuration tasks on Target managed nodes.
 
 ```
@@ -92,6 +94,7 @@ Also, make sure that python3 or latest is installed on both control and managed 
 - name: Security & Complaince tasks
   hosts: my_servers
   become: true
+  remote_user: samirwadkar31
   tasks:
    - name: Ensure password authentication is disabled under SSH folder
      lineinfile:
@@ -158,6 +161,7 @@ Also, make sure that python3 or latest is installed on both control and managed 
 - name: Simple Application Deployment
   hosts: my_servers
   become: true
+  remote_user: samirwadkar31
   tasks:
     - name: Ensure apt cache is up-to-date
       apt:
