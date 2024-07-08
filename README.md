@@ -154,6 +154,14 @@ Also, make sure that python3 or latest is installed on both control and managed 
        enabled: yes
 ```
 
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/765f4153-fb7a-440d-8b63-2991946b855f)
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/df9b64b1-6ad3-4fb8-a364-225d829bdb1c)
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/a21493f8-a92d-471f-a124-d2240f2fd027)
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/a132505b-4b8c-46c9-b7c7-f0e2275ebf6d)
+
+
+
+
 ### Ansible PlayBook 3: Performing sample application deployment task on Target managed nodes.
 
 ```
