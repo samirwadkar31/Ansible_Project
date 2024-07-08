@@ -48,11 +48,6 @@ We are going to perform some configurations tasks on managed nodes using below a
        name: devuser
        password: "{{ 'password' | password_hash('sha512') }}"
        update_password: always
-   - name: Add SSH key for devuser
-     authorized_key:
-       user: devuser
-       state: present
-       key: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEArM3P... generated-key ..."
    - name: Install Docker
      apt:
        name: docker.io
