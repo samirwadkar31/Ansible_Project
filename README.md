@@ -90,13 +90,15 @@ Verification:
 
 sameer-managed-node-1:
 
-docker is installed and new user devuser has been created,
+docker is installed, new user devuser has been created, etc other tasks have been successfully performed on sameer-managed-node-1
+
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/31eefba2-5ec7-4214-bf66-2708fff91e73)
 
 
 sameer-managed-node-2:
 
-docker is installed and new user devuser has been created,
+docker is installed, new user devuser has been created, etc other tasks have been successfully performed on sameer-managed-node-2
+
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/35f3f474-a46f-419a-9bed-da778d2d3911)
 
 
@@ -173,6 +175,19 @@ docker is installed and new user devuser has been created,
 ![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/a132505b-4b8c-46c9-b7c7-f0e2275ebf6d)
 
 
+Verification:
+
+sameer-managed-node-1:
+
+fail2ban, ufw, ufw rule, prometheus-node-exporter etc other tasks have been successfully performed on sameer-managed-node-1.
+
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/7e921031-19d4-4022-bd3a-8e3f715f5815)
+
+sameer-managed-node-2:
+
+fail2ban, ufw, ufw rule, prometheus-node-exporter etc other tasks have been successfully performed on sameer-managed-node-2.
+
+![image](https://github.com/samirwadkar31/Ansible_Project/assets/74359548/3ced9827-9dd1-42be-9380-2cecc5f7a7ee)
 
 
 ### Ansible PlayBook 3: Performing sample application deployment task on Target managed nodes.
