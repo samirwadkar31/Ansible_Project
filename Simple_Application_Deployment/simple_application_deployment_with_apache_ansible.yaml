@@ -2,6 +2,7 @@
 - name: Simple Application Deployment
   hosts: my_servers
   become: true
+  remote_user: samirwadkar31
   tasks:
     - name: Ensure apt cache is up-to-date
       apt:
