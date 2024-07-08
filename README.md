@@ -78,16 +78,10 @@ Also, make sure that python3 or latest is installed on both control and managed 
 ```
 ---
 - name: Security & Complaince tasks
-  hosts: servers
+  hosts: my_servers
   become: true
   tasks:
-   - name: Disable root SSH login
-     lineinfile:
-       path: /etc/ssh/sshd_config
-       regexp: '^PermitRootLogin'
-       line: 'PermitRootLogin no'
-       state: present
-   - name: Ensure SSH password authentication is disabled
+   - name: Ensure password authentication is disabled under SSH folder
      lineinfile:
        path: /etc/ssh/sshd_config
        regexp: '^PasswordAuthentication'
@@ -149,9 +143,16 @@ Also, make sure that python3 or latest is installed on both control and managed 
 
 ```
 ---
-- hosts: all
+- name: Simple Application Deployment
+  hosts: my_servers
   become: true
   tasks:
+    - name: Ensure apt cache is up-to-date
+      apt:
+        update_cache: yes
+    - name: Upgrade all packages to the latest version
+      apt:
+        upgrade: dist
     - name: Install apache http server
       apt:
         name: apache2
